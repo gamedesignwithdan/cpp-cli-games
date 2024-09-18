@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void drawBoard(char board[3][3])
+void draw_board(char board[3][3])
 {
     cout << "\n-------------\n";
     for (int i = 0; i < 3; i++)
@@ -16,7 +16,7 @@ void drawBoard(char board[3][3])
     }
 }
 
-bool checkForWin(char board[3][3], char player)
+bool check_for_win(char board[3][3], char player)
 {
     for (int i = 0; i < 3; i++)
     {
@@ -57,13 +57,13 @@ int main()
 
     while (active && turn < 9)
     {
-        drawBoard(board);
-        cout << player << "'s turn. " << "Please provide row (0 - 2) and column (0 - 2)" << endl;
+        draw_board(board);
+        cout << player << "'s turn. " << "Please provide row (0 - 2) and column (0 - 2): ";
         cin >> col >> row;
 
         if (col < 0 || col > 2 || row < 0 || row > 2)
         {
-            cout << "Invalid input. Please provide a row number and a column between 0 and 2. e.g. 1 2" << endl;
+            cout << "Invalid input. Please provide a row number and a column between 0 and 2. e.g. 1 2: ";
         }
         else if (board[col][row] != ' ')
         {
@@ -72,9 +72,9 @@ int main()
         else
         {
             board[col][row] = player;
-            if (checkForWin(board, player))
+            if (check_for_win(board, player))
             {
-                drawBoard(board);
+                draw_board(board);
                 cout << "\nPlayer " << player << " has won the game!" << endl;
                 active = 0;
             }
@@ -82,7 +82,7 @@ int main()
             turn++;
         }
     }
-
+    draw_board(board);
     cout << "game finished";
     return 1;
 }

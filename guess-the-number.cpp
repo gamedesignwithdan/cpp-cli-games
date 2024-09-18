@@ -1,4 +1,3 @@
-// C++ program to implement tic tac toe game
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
@@ -6,10 +5,8 @@ using namespace std;
 int main()
 {
     bool running = true;
-    // Providing a seed value
     srand((unsigned)time(NULL));
 
-    // Get a random number
     int random = 1 + (rand() % 100);
     int guess;
 
